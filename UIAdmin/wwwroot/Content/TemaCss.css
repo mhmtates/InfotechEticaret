@@ -1,0 +1,53 @@
+﻿*{padding:0;margin:0;font-family: 'Source Sans Pro', sans-serif;font-size:16px;}
+/*#343a40*/
+
+.LeftColumns{background-color:#343a40;color:white;width:13%;float:left;padding-bottom:15px;position:fixed;height:100%;}
+.Header{height:150px;}
+
+.menunavbar{padding:0;margin:0;list-style-type:none}
+.menunavbar li a{ display:block;color:white;padding:10px;border-bottom:solid 0.3mm #292d31}
+.menunavbar li a i{font-size:13px;margin-right:10px;}
+.menunavbar li a i:nth-of-type(2n+2){float:right;margin-top:3px;font-size:17px;margin-right:5px;}
+.menunavbar li a:hover{text-decoration:none;background-color:#151313;color:white}
+.menunavbar li ul {background-color:#252b33;}
+/*.menunavbar li:hover  ul {display:block;}
+*/.menunavbar li ul li a{padding-left:25px;}
+.menunavbar li{background-color:#181c23;}
+.menunavbar li ul li {background-color:#252b33;}
+.menunavbar li ul li a{border-bottom:solid 0.3mm #1d2127}
+
+
+.RightColumns{float:right;width:87%;}
+
+.UstTaraf{padding:10px;background-color:white;height:50px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/EticaretCss.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="~/Scripts/JSONAJAXSEPET.js"></script>
+    <link href="~/Content/AdminCheck.css" rel="stylesheet" />
+</head>
+<body style="background-color:#f1f1f1">
+
+    <div class="container-fluid" style="background-color:white;width:65%;margin-left:22.5%;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <ul class="BasketCustomer">
+                        <li>
+                            <i class="fa fa-sign-in" aria-hidden="true" style="margin-right:5px;"></i>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <a href="/Customer/Hesabim">Hesabım(@User.Identity.Name)</a>
+                            }
+                            else
+                            {
+                                <a href="/Customer">Giriş Yap</a>
+                            }
+                        </li>
+                        <li id="SepetRefresh">
+                            <i class="fa fa-shopping-basket" aria-hidden="true" style="margin-right:5px;"></i>
+                            <script>
+                                $(document).ready(function () {
+                                    $("#SepetKontrol").load("/PartialView/SepetAdetKontrol");
+                                });
+                            </script>
+
+                            <a href="/Basket" id="SepetKontrol"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="menubar">
+                        <ul>
+                            <li><a href="/">ANASAYFA</a></li>
+                            <li>
+                                <a href="#">KATEGORİLER</a>
+                                <ul class="submenu">
+                                    @await Component.InvokeAsync("Kategori")
+                                </ul>
+                            </li>
+                            <li><a href="/Kampanyalar">KAMPANYALAR</a></li>
+                            <li><a href="#">ÇOK SATANLAR</a></li>
+                            <li><a href="#">ÇÖZÜM MERKEZİ</a></li>
+                            <li><a href="#">İLETİŞİM</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PartialView  => Server ve Client    JQUERY ile Birlikte Çalışır. SAYFA POST EDİLMEDEN SADECE BELİRLENEN ALAN POST EDİLİYOR.  ---->
+            <!-- ViewComponent  = Client ? Server ?   QUERY ile Birlikte Çalışmaz. --->
+
+            <div class="col-md-12">
+                <div class="row">
+                    @RenderBody()
+                </div>
+            </div>
+
+            <div class="col-md-12" style="background-color:#1b1b1b;height:250px;">
+                <div class="row">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

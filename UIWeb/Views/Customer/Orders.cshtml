@@ -1,0 +1,147 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_Shared/_LayoutPage.cshtml";
+    decimal Toplam = 0;
+}
+
+<div class="col-md-12">
+    <div class="row">
+        <img src="~/images/Banner.png" width="100%" />
+    </div>
+</div>
+
+
+
+<div class="col-md-12" style="background-color:#f3f3f3;margin-bottom:15px;margin-top:15px;">
+    <div class="row">
+        <div class="TextHeader">SİPARİŞLERİM</div>
+    </div>
+</div>
+
+
+<div class="col-md-12 ProductDiv">
+    <div class="row">
+
+        <div class="col-md-3">
+
+            <ul class="HesabimMenu">
+                <li><a href="#">Hesabım</a></li>
+                <li><a href="/Customer/Orders">Siparişlerim</a></li>
+                <li><a href="#">İadelerim</a></li>
+                <li><a href="#">Adreslerim</a></li>
+                <li><a href="/Customer/Logout">Çıkış</a></li>
+            </ul>
+
+        </div>
+
+        <div class="col-md-9">
+
+
+            @foreach (var t in Model)
+            {
+                <div style="padding:15px;width:100%;margin-top:5px;margin-bottom:5px;">
+                    <table class="table table-bordered tabloStatus" style="margin-bottom:-1px;">
+                        <tr>
+                            <td style="text-align:center">Ödeme : <b>@t.PaymentType</b> </td>
+                            <td style="text-align:center">Sipariş Tarihi :  <b>@t.PaymentTime.ToString("dd-MM-yyyy") @t.PaymentTime.ToString("HH:ss")</b></td>
+                            <td style="text-align:center">Durumu : <b>@t.OrderStatus</b></td>
+                            <td style="text-align:center">Takip No : <b>@t.CargoNumber</b></td>
+                        </tr>
+                    </table>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <td></td>
+                                <td style="text-align:center">Ürün</td>
+                                <td style="text-align:center">Birim Fiyat</td>
+                                <td style="text-align:center">Adet</td>
+                                <td style="text-align:center">Toplam</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in ViewBag.Data)
+                            {
+                                if (t.OrderID == item.OrderID)
+                                {
+                                    <tr>
+                                        <td style="padding:5px;width:10%;"><img src="~/images/@item.images" style="width:100%;" /></td>
+                                        <td style="vertical-align: middle;text-align:center">@item.Name</td>
+                                        <td style="vertical-align: middle;text-align: center">
+                                            @if (item.DiscountPrice == 0)
+                                            {
+                                                @Html.Raw(item.Price.ToString("N") + " TL");
+                                            }
+                                            else
+                                            {
+                                                @Html.Raw(item.DiscountPrice.ToString("N") + " TL" + "<br><span style='text-decoration:line-through;color:darkred'>" + item.Price.ToString("N") + " TL</span>");
+                                            }
+                                        </td>
+                                        <td style="vertical-align: middle;text-align: center">
+                                            @item.Piece
+                                        </td>
+                                        <td style="vertical-align: middle;text-align: center">
+                                            @if (item.DiscountPrice == 0)
+                                            {
+                                                @Html.Raw((item.Price * item.Piece).ToString("N") + " TL");
+
+                                                Toplam += item.Price * item.Piece;
+                                            }
+                                            else
+                                            {
+                                                @Html.Raw((item.DiscountPrice * item.Piece).ToString("N") + " TL");
+
+                                                Toplam += item.DiscountPrice * item.Piece;
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                            }
+
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered" style="margin-top:-17.5px;">
+
+                        <tr>
+                            <td colspan="2" style="width:65%;border-right:0;"></td>
+                            <td style="text-align:right;border-left:0;">Ara Fiyat :</td>
+                            <td style="text-align:right"> @((Toplam - (Toplam * 18 /100)).ToString("N")  + " TL")</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="border-right: 0;"></td>
+                            <td style="text-align:right;border-left:0;">KDV ( %@t.KDV ) :</td>
+                            <td style="text-align:right">@((Toplam * t.KDV / 100).ToString("N")  + " TL")</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="border-right: 0;"></td>
+                            <td style="text-align:right;border-left:0;">Kargo :</td>
+                            <td style="text-align:right">@t.CargoPrice.ToString("N") TL</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="border-right: 0;"></td>
+                            <td style="text-align:right;border-left:0;">Toplam :</td>
+                            <td style="text-align:right">@Toplam.ToString("N") TL</td>
+                        </tr>
+
+                    </table>
+                </div>
+            }
+
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

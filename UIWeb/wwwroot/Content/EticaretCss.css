@@ -1,0 +1,63 @@
+﻿@font-face {
+    font-family: 'GothamNarrow-Black';
+    src: url('../fonts/GothamNarrow-Black.otf') format('opentype');
+}
+@font-face {
+    font-family: 'GothamNarrow-Book';
+    src: url('../fonts/GothamNarrow-Book.otf') format('opentype');
+}
+*{padding:0;margin:0;  font-family: 'GothamNarrow-Book';font-size:16px;}
+
+
+
+.menubar{padding:0;margin:0;margin-top:5px;width:100%;background-color:#0b4874}
+.menubar ul{list-style:none;padding:0;margin:0;width:800px;margin-left:auto;margin-right:auto;}
+.menubar ul li{float:left;position:relative}
+.menubar ul li a{padding:15px;display:block;color:white;}
+.menubar ul li:nth-of-type(2n+1){background-color:#042c49;}
+.menubar ul li:nth-of-type(2n+3){background-color:#0b4874;}
+.menubar ul li:nth-of-type(2n+5){background-color:#0b4874;}
+.menubar ul li a:hover{background-color:#032137;text-decoration:none;}
+.menubar ul li .submenu{position:absolute;left:0;top:54px;background-color:#032137;width:250px;z-index:9999;display:none;}
+.menubar ul li .submenu li {display:block;width:100%;border-bottom:solid 0.3mm #03253d}
+.menubar ul li .submenu li a{padding:10px;}
+.menubar ul li .submenu li:nth-of-type(2n+1){background-color:#042c49;}
+.menubar ul li .submenu li:nth-of-type(2n+2){background-color:#042c49;}
+.menubar ul li:hover .submenu {display:block}
+
+.TextHeader{font-size:25px;font-family: 'GothamNarrow-Black';text-align:center;width:100%;display:block;margin-top:20px;margin-bottom:20px;color:#0b4877}
+
+.ProductDiv{margin-bottom:250px;}
+.Product{width:24%;float:left;margin:0.5%;border:solid 0.3mm #ededed;cursor:pointer}
+.Product:hover {-webkit-box-shadow: 0 0 1px 2px #dbdbdb; -moz-box-shadow: 0 0 1px 2px #dbdbdb;box-shadow: 0 0 1px 2px #dbdbdb;}
+.Product img{width:100%;}
+.ProductHead{text-align:center;display:block;margin-bottom:10px;background-color:#f3f3f3;padding-top:5px;padding-bottom:5px;}
+.Price{}
+.Price span:nth-of-type(2n+1){display:block;float:left;width:48%;text-align:right;padding:10px;color:#670a0d;text-decoration:line-through;padding-right:0;font-size:15px;}
+.Price span:nth-of-type(2n+2){display:block;float:right;width:48%;text-align:left;padding:10px;padding-left:0;font-size:18px;padding-top:7px;}
+
+.Price2 span{display:block;float:none;width:100%;text-align:center;padding:10px;padding-left:0;font-size:18px;padding-top:7px;}
+
+.ProductBtn a:nth-of-type(2n+1){width:40%;display:block;padding:5px;float:left;background-color:#141414;color:white;text-align:center;margin-top:10px;}
+
+.ProductBtn a:nth-of-type(2n+2){width:40%;display:block;padding:5px;float:right;background-color:#670a0d;color:white;text-align:center;margin-top:10px;}
+
+.BasketCustomer{padding:0;margin:0;width:450px;margin-left:auto;list-style:none}
+.BasketCustomer li{float:left;padding:10px;display:block;}
+.BasketCustomer li a{color:#141414;}
+.BasketCustomer li a:hover{color:#0b4874;font-weight:bold;text-decoration:none}
+
+.Filtreleme{background-color:#efefef;width:100%;margin-bottom:15px;}
+.Filtreleme ul {list-style:none;padding:0;width:600px;margin-left:auto;margin-right:auto;}
+.Filtreleme ul li a{padding:10px;display:block;float:left;cursor:pointer;padding-left:15px;padding-right:15px;border-right:solid 0.3mm #d0d0d0;color:#141414}
+.Filtreleme ul li:last-of-type{border:none;}
+.Filtreleme ul li a:hover{background-color:#0b4874;color:white;text-decoration:none}
+
+
+.HesabimMenu{padding:0;margin:0;list-style:none;background-color:#f7f7f7;border:solid 0.3mm #ebebeb}
+.HesabimMenu li a{padding:7px;display:block;text-decoration:none;color:#1f1f1f;border-bottom:solid 0.3mm #eeeeee}
+.HesabimMenu li a:hover{background-color:#0b4874;color:white;text-decoration:none}
+
+.tabloStatus{background-color:#0b4874;color:white;}
+.tabloStatus td {color:white;}
+

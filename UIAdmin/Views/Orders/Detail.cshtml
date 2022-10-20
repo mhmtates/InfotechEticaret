@@ -1,0 +1,303 @@
+﻿@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Views/_Shared/_LayoutPage.cshtml";
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="row">
+
+
+
+            <div class="col-md-3">
+                <!-- USERS LIST -->
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title" style="padding-left:10px;"><i class="fa fa-shopping-cart" style="margin-right:5px;"></i> Sipariş Detayları</h3>
+
+                    </div>
+                    <!-- /.box-header -->
+                    @foreach (var item in Model)
+                    {
+                        <div class="box-body no-padding">
+                            <div class="box-body chat" id="chat-box">
+                                <div class="col-md-12" style="padding:10px;border-bottom:solid 0.3mm #f3f3f3">
+                                    <i class="fa fa-calendar" aria-hidden="true" title="Oluşturulma Tarihi" style="margin-right:10px;"></i>
+                                    @item.OrderDate.ToString("dd-MM-yyyy")
+                                </div>
+                                <div class="col-md-12" style="padding:10px;border-bottom:solid 0.3mm #f3f3f3">
+                                    <i class="fa fa-exchange" title="Ödeme Türü" aria-hidden="true" style="margin-right:10px;"></i>
+                                    @item.OrderStatus
+                                </div>
+                                <div class="col-md-12" style="padding:10px;border-bottom:solid 0.3mm #f3f3f3">
+                                    <i class="fa fa-truck" aria-hidden="true" title="Kargo" style="margin-right:10px;"></i>
+                                    @item.CargoPrice.ToString("N") TL
+                                </div>
+                                <div class="col-md-12" style="padding:10px;border-bottom:solid 0.3mm #f3f3f3">
+                                    <i class="fa fa-exchange" title="Ödeme Türü" aria-hidden="true" style="margin-right:10px;"></i>
+                                    @item.OdemeTuru
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-md-3">
+                <!-- USERS LIST -->
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title" style="padding-left:10px;"><i class="fa fa-user" style="margin-right:5px;"></i>Müşteri Detayları</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body no-padding">
+                        <div class="box-body chat" id="chat-box">
+                            @foreach (var item in Model)
+                            {
+                                <div class="col-md-12" style="padding:10px;border-bottom:solid 0.3mm #f3f3f3">@item.CustomersUpdateDto.City / @item.CustomersUpdateDto.District  </div>
+                                <div class="col-md-12" style="padding:10px;border-bottom:solid 0.3mm #f3f3f3"><b>@item.CustomersUpdateDto.Phone</b></div>
+                                <div class="col-md-12" style="padding:10px;border-bottom:solid 0.3mm #f3f3f3"><b>@item.CustomersUpdateDto.FullAddress</b> </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <!-- USERS LIST -->
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Fatura Adresi	</h3>
+
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body no-padding">
+                        <div class="box-body chat" id="chat-box">
+                            @{ int MusteriID = 0;}
+                            @foreach (var item in Model)
+                            {
+                                MusteriID = item.CustomersUpdateDto.Id;
+                                <div class="col-md-12" style="padding:10px;border-bottom:solid 0.3mm #f3f3f3">@item.CustomersUpdateDto.City / @item.CustomersUpdateDto.District  </div>
+                                <div class="col-md-12" style="padding:10px;border-bottom:solid 0.3mm #f3f3f3"><b>@item.CustomersUpdateDto.Phone</b></div>
+                                <div class="col-md-12" style="padding:10px;border-bottom:solid 0.3mm #f3f3f3"><b>@item.CustomersUpdateDto.FullAddress</b> </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <!-- USERS LIST -->
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Teslimat Adresi	</h3>
+
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body no-padding">
+                        <div class="box-body chat" id="chat-box">
+                            @foreach (var item in Model)
+                            {
+                                <div class="col-md-12" style="padding:10px;border-bottom:solid 0.3mm #f3f3f3">@item.CustomersUpdateDto.City / @item.CustomersUpdateDto.District  </div>
+                                <div class="col-md-12" style="padding:10px;border-bottom:solid 0.3mm #f3f3f3"><b>@item.CustomersUpdateDto.Phone</b></div>
+                                <div class="col-md-12" style="padding:10px;border-bottom:solid 0.3mm #f3f3f3"><b>@item.CustomersUpdateDto.FullAddress</b> </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-12">
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title" style="padding-left:10px;">
+                            <i class="fa fa-shopping-cart" style="margin-right:5px;"></i>
+                            SİPARİŞ NO : <b style="margin-right:15px">123 </b>
+                        </h3>
+
+                    </div>
+
+                    <!-- /.box-header -->
+                    <div class="box-body no-padding">
+                        <div class="box-body chat" id="chat-box">
+
+                            <style>
+                                .SepetTable {
+                                    width: 100%;
+                                    border: solid 0.3mm rgba(13, 13, 13, 0.07);
+                                }
+
+                                    .SepetTable thead tr td {
+                                        padding: 10px;
+                                        border: solid 0.3mm rgba(13, 13, 13, 0.07);
+                                        font-weight: 600;
+                                        background-color: rgba(0, 0, 0, 0.09);
+                                    }
+
+                                    .SepetTable tbody tr td {
+                                        padding: 10px;
+                                        border: solid 0.3mm rgba(13, 13, 13, 0.07);
+                                    }
+                            </style>
+
+                            <div class="row musterisepet">
+                                <div class="col-md-12">
+                                    <table class="SepetTable">
+                                        <thead>
+                                            <tr>
+                                                <td style="width:5%;text-align:center">Resmi</td>
+                                                <td class="Sadi">Ürün Bilgisi</td>
+                                                <td class="Sadet" style="text-align:right">Adet</td>
+                                                <td class="BFiyat" style="text-align:right">Birim Fiyat</td>
+                                                <td class="SToplam" style="text-align:right">Toplam</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{decimal Toplam = 0;}
+                                            @foreach (var item in Model)
+                                            {
+                                                foreach (var p in item.OrderDetailsDto)
+                                                {
+                                                    Toplam += p.Price * p.Piece;
+                                                    <tr>
+                                                        <td style="width:5%;text-align:center"></td>
+                                                        <td class="Sadi">@p.Name</td>
+                                                        <td class="Sadet" style="text-align:right">@p.Piece</td>
+                                                        <td class="BFiyat" style="text-align:right">@p.Price.ToString("N") TL </td>
+                                                        <td class="SToplam" style="text-align:right">@Html.Raw((p.Price * p.Piece).ToString("N"))  TL</td>
+                                                    </tr>
+                                                }
+                                            }
+                                            <tr>
+                                                <td class="Sadi" style="border-right:0;"></td>
+                                                <td class="Sadet" style="border-right:0;border-left:0;"></td>
+                                                <td class="Sadet" style="border-right:0;border-left:0;"></td>
+                                                <td class="BFiyat" style="text-align:right;border-top:0;"><b>Ara Fiyatı:</b></td>
+                                                <td class="SToplam" style="text-align:right;border-top:0;">@Html.Raw((Toplam - ((Toplam * 18) / 100)).ToString("N") + " TL")</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="Sadi" style="border-right:0;border-left:0;"></td>
+                                                <td class="Sadet" style="border-right:0;border-left:0;"></td>
+                                                <td class="Sadet" style="border-right:0;border-left:0;"></td>
+                                                <td class="BFiyat" style="text-align:right;"><b>Kdv ( %18 ) :</b></td>
+                                                <td class="SToplam" style="text-align:right;">@Html.Raw(((Toplam * 18) / 100).ToString("N") + " TL")</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="Sadi" style="border-right:0;border-left:0;"></td>
+                                                <td class="Sadet" style="border-right:0;border-left:0;"></td>
+                                                <td class="Sadet" style="border-right:0;border-left:0;"></td>
+                                                <td class="BFiyat" style="text-align:right;"><b>Kargo :</b></td>
+                                                <td class="SToplam" style="text-align:right;">0 TL</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="Sadi" style="border-right:0;border-left:0;"></td>
+                                                <td class="Sadet" style="border-right:0;border-left:0;"></td>
+                                                <td class="Sadet" style="border-right:0;border-left:0;"></td>
+                                                <td class="BFiyat" style="text-align:right;"><b>Toplam :</b></td>
+                                                <td class="SToplam" style="text-align:right;">@Toplam.ToString("N") TL</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <!-- USERS LIST -->
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title" style="padding-left:10px;"><i class="fa fa-comment-o" style="margin-right:5px;"></i>Sipariş Geçmişi	</h3>
+
+                    </div>
+                    <!-- /.box-header -->
+                    <form asp-controller="Orders" asp-action="Detail" asp-route-id="@ViewContext.RouteData.Values["Id"]" method="post">
+                        <div class="box-body no-padding">
+                            <div class="box-body chat" id="chat-box" style="padding:0;">
+
+                                <div id="TableGetir" style="padding:10px;">
+                                    <table class="table table-bordered table-hover">
+                                        <tr>
+                                            <td>Müşteri</td>
+                                            <td>SMS</td>
+                                            <td>EMAİL</td>
+                                            <td>MESAJ</td>
+                                            <td>TARİH</td>
+                                        </tr>
+                                        <tbody>
+                                            @foreach (var item in Model)
+                                            {
+                                                @foreach (var n in item.OrderInfoDto)
+                                                {
+                                                    <tr>
+                                                        <td>@item.CustomersUpdateDto.NameSurname</td>
+                                                        <td>@Html.Raw(n.Sms == true ? "Gönderildi." : "Gönderilmedi")</td>
+                                                        <td>@Html.Raw(n.Email == true ? "Gönderildi." : "Gönderilmedi")</td>
+                                                        <td>@n.Message</td>
+                                                        <td>@n.InfoDate</td>
+                                                    </tr>
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+
+
+                                </div>
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">Sipariş Geçmişi Ekle	</h3>
+                                </div>
+                                <div class="row" style="border-bottom:solid 0.3mm #f6f6f6; margin-bottom:10px;padding:20px;padding-top:10px;padding-bottom:10px;">
+                                    <div class="col-md-2" style="text-align:right;padding-top:5px;">Sipariş Durumu :</div><div class="col-md-10">
+                                        <select class="form-control" id="SiparisOzeti" name="SiparisOzeti">
+                                            <option value="Kargoya Verildi">KKargoya Verildi</option>
+                                            <option value="Teslim Edildi">Teslim Edildi</option>
+                                            <option value="Onaylandı">Onaylandı</option>
+                                            <option value="Hazırlanıyor">Hazırlanıyor</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row" style="border-bottom:solid 0.3mm #f6f6f6; margin-bottom:10px;padding:20px;padding-top:10px;padding-bottom:10px;">
+                                    <div class="col-md-2" style="text-align:right;padding-top:5px;">Müşteriye Bildir :</div><div class="col-md-10">
+                                        <input type="checkbox" value="1" class="UyelikTipi" id="tesSt23" name="Sms">
+                                        <label for="tesSt23">Sms ile Bildir</label>
+                                        <input type="checkbox" value="1" class="UyelikTipi" id="tesSt2" name="Email">
+                                        <label for="tesSt2">Email İle Bildir</label>
+                                    </div>
+                                </div>
+                                <div class="row" style="border-bottom:solid 0.3mm #f6f6f6; margin-bottom:10px;padding:20px;padding-top:10px;padding-bottom:10px;">
+                                    <div class="col-md-2" style="text-align:right;padding-top:5px;">Açıklama:</div><div class="col-md-10">
+
+                                        <textarea id="MAciklama" name="Message" class="form-control" type="text" style="height:250px" maxlength="250"> </textarea>
+
+                                    </div>
+                                </div>
+                                <div style="text-align:center;margin-top:35px; margin-bottom:20PX;"> <button type="submit" class="Guncellesbmit"><i class="fa fa-floppy-o" aria-hidden="true"></i><span style="padding-left:10px;">Sipariş Geçmişini Güncelle</span></button></div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-12" style="margin-top:25px;">
+                <div class="row">
+                    <div class="box-body no-padding">
+                        <div class="box-body chat" id="chat-box">
+                            <div id="SiparisError">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+    </section>
+</div>

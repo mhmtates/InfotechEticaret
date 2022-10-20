@@ -1,0 +1,4 @@
+﻿#Loader{position:absolute; width:100%;height:100%;top:0;left:0;background-color:#F1F2F390;z-index:99999;padding-top:6%;display:none}
+.loading {width:150px;margin-left:auto;margin-right:auto;text-align:center}
+.loading img {width:100px}
+.loading span{font-size:16px;display:block;padding:5px;}

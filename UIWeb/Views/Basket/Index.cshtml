@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_Shared/_LayoutPage.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="row">
+        <img src="~/images/Banner.png" width="100%" />
+    </div>
+</div>
+
+
+
+<div class="col-md-12" style="background-color:#f3f3f3;margin-bottom:15px;margin-top:15px;">
+    <div class="row">
+        <div class="TextHeader">SEPETİM</div>
+    </div>
+</div>
+
+<script>
+    function StokArttirAzalt(Id,stok) {
+        $.ajax({
+            type: "POST",
+            url: "/Basket/JSONStokAyari",
+            data: { ID: '' + Id + '',Durum: '' + stok + '' },
+            dataType: "json",
+            success: function (responseS) {
+                $("#Loader").show();
+                $("#SepetDiv").load("/Basket/PartialSepetGet");
+                $("#SepetKontrol").load("/PartialView/SepetAdetKontrol");
+                $("#Loader").fadeOut();
+            },
+            failure: function (responseS) {
+            },
+            error: function (responseS) {
+            }
+        });
+    };
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#SepetDiv").load("/Basket/PartialSepetGet");
+        $("#SepetKontrol").load("/PartialView/SepetAdetKontrol");
+        $("#Loader").fadeOut();
+    });
+</script>
+
+
+<div class="col-md-12 ProductDiv">
+    <div class="row" id="SepetDiv">
+
+    </div>
+    <div id="Loader" style="position:absolute;text-align:center;width:100%;top:15px;background-color:rgb(255 255 255 / 0.54);left:0;height:100%;vertical-align:middle"><img src="~/images/Bekleyiniz.gif" width="100"><span style="display:block;text-align:center;padding:10px;">Lütfen Bekleyiniz..</span></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

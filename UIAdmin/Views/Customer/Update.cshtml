@@ -1,0 +1,108 @@
+﻿@model Entities.DTO.CustomersUpdateDto;
+@{
+    ViewData["Title"] = "Insert";
+    Layout = "~/Views/_Shared/_LayoutPage.cshtml";
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box  box-default box-solid">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">MÜŞTERİ YÖNETİMİ</h3>
+                    </div>
+                    <div class="box-body" style="padding-top:25px;">
+
+                        <form asp-action="Update" asp-controller="Customer" method="post" asp-route-id="@ViewContext.RouteData.Values["Id"]">
+
+
+                            <div class="col-md-12" style="margin-bottom:10px;margin-top:10px;">
+                                <input type="text" name="NameSurname" class="form-control" asp-for="NameSurname" value="@Model.NameSurname" />
+                                <span asp-validation-for="NameSurname" style="position:absolute;right:25px;top:5px;color:#ff0000"></span>
+                            </div>
+
+                            <div class="col-md-12" style="margin-bottom:10px;margin-top:10px;">
+                                <input type="text" name="Phone" class="form-control" asp-for="Phone"  value="@Model.Phone" />
+                                <span asp-validation-for="Phone" style="position:absolute;right:25px;top:5px;color:#ff0000"></span>
+                            </div>
+
+                            <div class="col-md-12" style="margin-bottom:10px;margin-top:10px;">
+                                <input type="text" name="Email" class="form-control" asp-for="Email" value="@Model.Email" />
+                                <span asp-validation-for="Email" style="position:absolute;right:25px;top:5px;color:#ff0000"></span>
+                            </div>
+
+                            <div class="col-md-12" style="margin-bottom:10px;margin-top:10px;">
+                                <input type="text" name="City" class="form-control" asp-for="City"  value="@Model.City"  />
+                                <span asp-validation-for="City" style="position:absolute;right:25px;top:5px;color:#ff0000"></span>
+                            </div>
+
+                            <div class="col-md-12" style="margin-bottom:10px;margin-top:10px;">
+                                <input type="text" name="District" class="form-control" asp-for="District" value="@Model.District" />
+                                <span asp-validation-for="District" style="position:absolute;right:25px;top:5px;color:#ff0000"></span>
+                            </div>
+
+                            <div class="col-md-12" style="margin-bottom:10px;margin-top:10px;">
+                                <input type="text" name="FullAddress" class="form-control" asp-for="FullAddress" value="@Model.FullAddress" />
+                                <span asp-validation-for="FullAddress" style="position:absolute;right:25px;top:5px;color:#ff0000"></span>
+                            </div>
+
+                            <div class="col-md-12" style="margin-bottom:10px;margin-top:10px;">
+                                <input type="text" name="Password" class="form-control" asp-for="Password" value="@Model.Password" />
+                                <span asp-validation-for="Password" style="position:absolute;right:25px;top:5px;color:#ff0000"></span>
+                            </div>
+
+                            <div class="col-md-12" style="margin-bottom:10px;margin-top:10px;">
+                                <select name="Advert" class="form-control">
+                                    @if (Model.Advert)
+                                    {
+                                        <option value="True">Email ve Sms Gönderilsin</option>
+                                        <option value="False">Email ve Sms Gönderilmesin</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="False">Email ve Sms Gönderilmesin</option>
+                                        <option value="True">Email ve Sms Gönderilsin</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <div class="col-md-12" style="margin-bottom:10px;margin-top:10px;">
+                                <select name="Gender" class="form-control">
+                                    @if (Model.Gender)
+                                    {
+                                        <option value="True">Erkek</option>
+                                        <option value="False">Kadın</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="False">Kadın</option>
+                                        <option value="True">Erkek</option>
+                                    }
+                                </select>
+                            </div>
+
+
+
+                            <div class="col-md-12" style="margin-bottom:10px;margin-top:10px;">
+
+                                <button type="submit" class="btn btn-primary">KAYDET</button>
+
+                            </div>
+                        </form>
+                    </div>
+
+
+
+                    <div class="col-md-12">
+                        @if (ViewData["Message"] != null)
+                        {
+                            @Html.Raw(ViewData["Message"])
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+

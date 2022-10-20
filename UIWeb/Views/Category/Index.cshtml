@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_Shared/_LayoutPage.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="row">
+        <img src="~/images/Banner.png" width="100%" />
+    </div>
+</div>
+
+
+
+<div class="col-md-12" style="background-color:#f3f3f3;margin-bottom:15px;margin-top:15px;">
+    <div class="row">
+        <div class="TextHeader">@ViewBag.Kategori.Name</div>
+    </div>
+</div>
+
+<div class="col-md-12">
+    <div class="row">
+        <div class="Filtreleme">
+            <ul>
+                <li><a href="/@ViewContext.RouteData.Values["GetName"]/@ViewContext.RouteData.Values["id"]?Sira=FGA">Fiyata Göre Artan</a></li>
+                <li><a href="/@ViewContext.RouteData.Values["GetName"]/@ViewContext.RouteData.Values["id"]?Sira=FGAZ">Fiyata Göre Azalan</a></li>
+                <li><a href="/@ViewContext.RouteData.Values["GetName"]/@ViewContext.RouteData.Values["id"]?Sira=AZ">İsme Göre A-Z</a></li>
+                <li><a href="/@ViewContext.RouteData.Values["GetName"]/@ViewContext.RouteData.Values["id"]?Sira=ZA">İsme Göre Z-A</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-2">
+    <div class="row">
+        <div class="col-md-12">ALT KATEGORİLER</div>
+        @if (ViewBag.AltKategori != null)
+        {
+            <ul style="padding:0;margin:0;list-style:none;">
+                @foreach (var item in ViewBag.AltKategori)
+                {
+                    <li style="display:block;"><a href="/@UIWeb.YaziTemizle.Temizle(item.Name)/@item.Id" style="display:block;padding:10px;color:#151515;border-bottom:solid 0.3mm #e4e4e4;width:100%;">@item.Name</a></li>
+                }
+            </ul>
+        }
+    </div>
+</div>
+<div class="col-md-10 ProductDiv">
+    <div class="row">
+
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <div class="Product">
+                    <img src="~/images/Products/@item.MainImages" />
+                    <div class="ProductHead"> @item.Name </div>
+                    <div class="Price">
+                        <span>@item.Price.ToString("N") TL</span>
+                        <span>@item.Discount.ToString("N") TL</span>
+                    </div>
+                    <div class="ProductBtn">
+                        <a href="#">İncele</a>
+                        <a style="color:white;" onclick="JSSepetEkle(@item.Id)">Sepete Ekle</a>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-md-12" style="padding:25px;text-align:center;font-size:25px;">ÜRÜN BULUNAMADI.</div>
+        }
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+

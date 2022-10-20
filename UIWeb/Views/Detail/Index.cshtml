@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_Shared/_LayoutPage.cshtml";
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<div class="modal fade" id="myModal" role="dialog" style="z-index:99999;">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Sepet Uyarı</h4>
+            </div>
+            <div class="modal-body" style="text-align:center" id="GelenCevap">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="row">
+        <img src="~/images/Banner.png" width="100%" />
+    </div>
+</div>
+
+
+
+<div class="col-md-12">
+    <div class="row">
+        <div class="TextHeader">@Model.Name</div>
+    </div>
+</div>
+
+<div class="col-md-6">
+    <div class="col-md-12" style="border:solid 0.3mm #e4e4e4">
+        <img src="/images/Products/@Model.MainImages" width="100%" />
+    </div>
+    @foreach (var item in ViewBag.Resimler)
+    {
+        <div class="col-md-2">
+            <img src="/images/Products/detail/@item.Name" width="100%" />
+        </div>
+    }
+</div>
+<div class="col-md-6">
+    <div class="col-md-12">
+        <div class="col-md-12" style="font-weight:bold;font-size:22px;color:#4d0202">@Model.Price.ToString("C")</div>
+        @if (ViewBag.VaryantGroup != null)
+        {
+            <div class="col-md-12" style="font-weight:bold;">@ViewBag.VaryantGroup :</div>
+            <div class="col-md-12" style="margin-top:2px;">
+                <style>
+                    input[type="radio"]:checked + label {
+                        font-weight: bold;
+                    }
+                </style>
+                @{ int s = 0;}
+                @foreach (var item in ViewBag.Varyant)
+                {
+                    s++;
+                    if (s == 1)
+                    {
+                        <input type="radio" id="@item.Id" name="VaryantRadio" class="RadioVarya" value="@item.Id" checked>
+                        <label for="@item.Id">@item.Name - @item.Price.ToString("C")</label><br>
+                    }
+                    else
+                    {
+                        <input type="radio" id="@item.Id" name="VaryantRadio" class="RadioVarya" value="@item.Id">
+                        <label for="@item.Id">@item.Name - @item.Price.ToString("C")</label><br>
+                    }
+                }
+            </div>
+        }
+         <div class="col-md-12" style="margin-top:15px;"><button type="button" class="btn btn-primary form-control" onclick="DetailSepetEkle(@Model.Id)">SEPETE EKLE</button></div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+

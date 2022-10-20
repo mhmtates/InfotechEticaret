@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/_Shared/_LayoutPage.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box  box-default box-solid">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">
+                            SİPARİŞ YÖNETİMİ
+
+                        </h3>
+                    </div>
+                    <div class="box-body">
+
+                        <table id="example1" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Sipariş</th>
+                                    <th>Tarihi</th>
+                                    <th>Durumu</th>
+                                    <th>Fiyat</th>
+                                    <th>İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @if (Model != null)
+                                {
+                                    foreach (var item in Model)
+                                    {
+                                <tr>
+                                    <td>@item.Id</td>
+                                    <td>@item.OrderDate</td>
+                                    <td>@item.TotalPrice.ToString("C")</td>
+                                    <td>@item.OrderStatus</td>
+                                    <td>
+                                        <a href="/Orders/Detail/@item.Id" class="btn btn-primary">Detay</a>
+                                    </td>
+                                </tr>
+                                    }
+                                }
+                            </tbody>
+
+
+
+                        </table>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,159 @@
+﻿@model Entities.DTO.ProductsUpdateDto;
+@{
+    ViewData["Title"] = "Insert";
+    Layout = "~/Views/_Shared/_LayoutPage.cshtml";
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box  box-default box-solid">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">ÜRÜN YÖNETİMİ</h3>
+                    </div>
+                    <div class="box-body" style="padding-top:25px;">
+
+                        <form asp-action="Update" asp-route-id="@ViewContext.RouteData.Values["Id"]" asp-controller="Product" method="post" enctype="multipart/form-data">
+                            <div class="col-md-12" style="margin-bottom:10px;margin-top:10px;text-align:center">
+                                <img src="~/images/Products/@Model.MainImages" width="150" />
+                                <input type="text" name="MainImages" value="@Model.MainImages" hidden />
+                            </div>
+                            <div class="col-md-12" style="margin-bottom:10px;margin-top:10px;">
+                                <input type="file" name="Files" class="form-control" />
+                            </div>
+
+                            <div class="col-md-12" style="margin-bottom:10px;margin-top:10px;">
+                                <input type="text" name="Name" class="form-control" asp-for="Name" value="@Model.Name" />
+                                <span asp-validation-for="Name" style="position:absolute;right:25px;top:5px;color:#ff0000"></span>
+                            </div>
+
+                            <script>
+                                $(document).ready(function () {
+                                    $(".Kategori1").load("/PartialView/AnaKatagori")
+                                })
+                            </script>
+                            <input type="text" name="KategoriGizli" value="@Model.CategoriesId" hidden />
+                            <div class="col-md-12 Kategori1" style="margin-bottom:10px;margin-top:10px;"></div>
+                            <div class="col-md-12 Kategori2"></div>
+                            <div class="col-md-12 Kategori3"></div>
+
+                            <div class="col-md-12" style="margin-bottom:10px;margin-top:10px;">
+                                <input type="text" name="Stock" class="form-control" asp-for="Stock" value="@Model.Stock" />
+                                <span asp-validation-for="Stock" style="position:absolute;right:25px;top:5px;color:#ff0000"></span>
+                            </div>
+
+                            <div class="col-md-12" style="margin-bottom:10px;margin-top:10px;">
+                                <input type="text" name="Price" class="form-control" asp-for="Price" value="@Model.Price.ToString("N")" />
+                                <span asp-validation-for="Price" style="position:absolute;right:25px;top:5px;color:#ff0000"></span>
+                            </div>
+
+
+                            <div class="col-md-12" style="margin-bottom:10px;margin-top:10px;">
+                                <input type="text" name="Discount" class="form-control" asp-for="Discount" value="@Model.Discount.ToString("N")" />
+                                <span asp-validation-for="Discount" style="position:absolute;right:25px;top:5px;color:#ff0000"></span>
+                            </div>
+
+                            <div class="col-md-12" style="margin-bottom:10px;margin-top:10px;">
+                                <textarea type="text" name="Explanation" class="form-control" asp-for="Explanation" placeholder="Açıklama">@Model.Explanation</textarea>
+                                <span asp-validation-for="Explanation" style="position:absolute;right:25px;top:5px;color:#ff0000"></span>
+                            </div>
+
+                            <script type="text/javascript">
+                                var editor = CKEDITOR.instances['Explanation'];
+                                if (editor) { editor.destroy(true); }
+                                CKEDITOR.replace('Explanation', {
+                                    enterMode: CKEDITOR.ENTER_BR,
+                                });
+                            </script>
+
+                            <div class="col-md-12" style="margin-bottom:10px;margin-top:10px;">
+                                <input type="text" name="Keywords" class="form-control" asp-for="Keywords" value="@Model.Keywords" />
+                                <span asp-validation-for="Keywords" style="position:absolute;right:25px;top:5px;color:#ff0000"></span>
+                            </div>
+
+                            <div class="col-md-12" style="margin-bottom:10px;margin-top:10px;">
+                                <input type="text" name="Description" class="form-control" asp-for="Description" value="@Model.Description" />
+                                <span asp-validation-for="Description" style="position:absolute;right:25px;top:5px;color:#ff0000"></span>
+                            </div>
+
+
+                            <div class="col-md-12" style="margin-bottom:10px;margin-top:10px;">
+                                <select name="Status" class="form-control">
+                                    @if (Model.Status)
+                                    {
+                                        <option value="True">Aktif</option>
+                                        <option value="False">Pasif</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="False">Pasif</option>
+                                        <option value="True">Aktif</option>
+                                    }
+                                </select>
+                            </div>
+
+                            <div class="col-md-12" style="margin-bottom:20px;margin-top:20px;background-color:#ebebeb;font-size:20px;padding:15px;text-align:center">
+                                DETAY RESİMLERİ
+                            </div>
+                            <div class="col-md-12" style="margin-bottom:10px;margin-top:10px;">
+                                <input type="file" name="MultiFiles" class="form-control" multiple />
+                            </div>
+
+
+                            <div class="col-md-12" style="margin-bottom:20px;margin-top:20px;background-color:#ebebeb;font-size:20px;padding:15px;text-align:center">
+                                YÜKLÜ OLAN RESİMLERİ
+                            </div>
+                            <!-- ASP.NET MVC VE CORE TARAFLARINDA AJAX KULLANIMLARI FARKLIDIR.--->
+                            <script>
+                                function UrunResimSil(id) {
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "/Product/ImagesDelete/" + id + "",
+                                        success: function (result) {
+                                            alert(result);
+                                        }
+                                    });
+                                };
+                                $(document).ready(function () {
+                                    $(".imagesresimler").click(function () {
+                                        $(this).fadeOut();
+                                    });
+                                })
+                            </script>
+
+                            @if (ViewBag.detayResim != null)
+                            {
+                                foreach (var item in ViewBag.detayResim)
+                                {
+                                    <div class="col-md-3">
+                                        <div class="col-md-12 imagesresimler" style="border: solid 0.3mm #e2e2e2">
+                                            <img src="~/images/Products/detail/@item.Name" width="100%" />
+                                            <button type="button" onclick="UrunResimSil(@item.Id)" style="position:absolute;right:10px;top:10px" class="btn btn-danger">Sil</button>
+                                        </div>
+                                    </div>
+                                }
+                            }
+
+                            <div class="col-md-12" style="margin-bottom:10px;margin-top:10px;">
+
+                                <button type="submit" class="btn btn-primary">KAYDET</button>
+
+                            </div>
+                        </form>
+                    </div>
+
+
+
+                    <div class="col-md-12">
+                        @if (ViewData["Message"] != null)
+                        {
+                            @Html.Raw(ViewData["Message"])
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+

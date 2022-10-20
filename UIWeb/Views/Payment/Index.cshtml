@@ -1,0 +1,195 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_Shared/_LayoutPage.cshtml";
+    decimal Toplam = 0;
+}
+
+<div class="col-md-12">
+    <div class="row">
+        <img src="~/images/Banner.png" width="100%" />
+    </div>
+</div>
+
+
+
+<div class="col-md-12" style="background-color:#f3f3f3;margin-bottom:15px;margin-top:15px;">
+    <div class="row">
+        <div class="TextHeader">ÖDEME VE ADRES İŞLEMLERİ</div>
+    </div>
+</div>
+
+<form asp-action="Index" asp-controller="Payment" method="post">
+    <div class="col-md-12 ProductDiv">
+        <div class="row">
+
+            <div style="padding:15px;width:70%;float:left">
+                <div style="padding:10px;background-color:#0b3b68;text-align:center;color:white">ADRES BİLGİLERİ</div>
+                <div class="col-md-12" style="text-align:center;margin-top:10px;margin-bottom:10px;">
+                    <div class="row">
+                        <input type="text" class="form-control" name="NameSurName" disabled value="@ViewBag.Uyeler.NameSurname" />
+                    </div>
+                </div>
+
+                <div class="col-md-12" style="text-align:center;margin-top:10px;margin-bottom:10px;">
+                    <div class="row">
+                        <input type="text" class="form-control" name="Phone" disabled value="@ViewBag.Uyeler.Phone" />
+                    </div>
+                </div>
+
+                <div class="col-md-12" style="text-align:center;margin-top:10px;margin-bottom:10px;">
+                    <div class="row">
+                        <input type="text" class="form-control" name="Email" disabled value="@ViewBag.Uyeler.Email" />
+                    </div>
+                </div>
+                <div class="col-md-12" style="text-align:center;margin-top:10px;margin-bottom:10px;">
+                    <div class="row">
+                        <input type="text" class="form-control" name="City" disabled value="@ViewBag.Uyeler.City" />
+                    </div>
+                </div>
+
+                <div class="col-md-12" style="text-align:center;margin-top:10px;margin-bottom:10px;">
+                    <div class="row">
+                        <input type="text" class="form-control" name="District" disabled value="@ViewBag.Uyeler.District" />
+                    </div>
+                </div>
+
+                <div class="col-md-12" style="text-align:center;margin-top:10px;margin-bottom:10px;">
+                    <div class="row">
+                        <textarea type="text" class="form-control" name="FullAddress" value="@ViewBag.Uyeler.FullAddress" style="height:150px;" disabled></textarea>
+                    </div>
+                </div>
+
+                <div style="padding:10px;background-color:#0b3b68;text-align:center;color:white">ÖDEME YÖNTEMLERİ</div>
+
+                <link rel="stylesheet" href="/RadioButton/css/style.css">
+
+                <div class="col-md-12 odemediv" style="margin-top:10px;margin-bottom:10px;">
+                    <div class="row">
+                        <div>
+                            <input type="radio" id="control_01" name="OdemeYontemi" value="Kapıda Ödeme" checked>
+                            <label for="control_01">
+                                Kapıda Ödeme
+                            </label>
+                        </div>
+                        <div>
+                            <input type="radio" id="control_02" name="OdemeYontemi" value="Havale İle Ödeme">
+                            <label for="control_02">
+                                Havale ile Ödeme
+                            </label>
+                        </div>
+                        <div>
+                            <input type="radio" id="control_03" name="OdemeYontemi" value="Kredi Kartı İle Ödeme">
+                            <label for="control_03">
+                                Kredi Kartı İle Ödeme
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                    $(document).ready(function () {
+                        $("#control_01").click(function () {
+                            $(".KapidaOdeme").fadeToggle();
+                            $(".Havale").hide();
+                            $(".KrediKarti").hide();
+                        });
+                        $("#control_02").click(function () {
+                            $(".KapidaOdeme").hide();
+                            $(".Havale").fadeToggle();
+                            $(".KrediKarti").hide();
+                        });
+                        $("#control_03").click(function () {
+                            $(".KapidaOdeme").hide();
+                            $(".Havale").hide();
+                            $(".KrediKarti").fadeToggle();
+                        });
+                    });
+                </script>
+                <div class="col-md-12" style="text-align:center;margin-top:10px;margin-bottom:10px;">
+                    <div class="row">
+
+                        <div class="KapidaOdeme" style="text-align:left;padding:10px;border:solid 0.3mm #ededed">
+                            <p style="font-weight: normal;">Kapıda Ödeme Lorem ipsum dolor sit amet, consectetur adipiscing elit. Stoicos roga. Iam id ipsum absurdum, maximum malum neglegi. Duo Reges: constructio interrete. Suo enim quisque studio maxime ducitur. Qui autem esse poteris, nisi te amor ipse ceperit? Scisse enim te quis coarguere possit?</p>
+                        </div>
+
+                        <div class="Havale" style="display:none;font-weight:normal;text-align:left;padding:10px;border:solid 0.3mm #ededed">
+                            <p style="font-weight: normal;">Havale ile Ödeme Lorem ipsum dolor sit amet, consectetur adipiscing elit. Stoicos roga. Iam id ipsum absurdum, maximum malum neglegi. Duo Reges: constructio interrete. Suo enim quisque studio maxime ducitur. Qui autem esse poteris, nisi te amor ipse ceperit? Scisse enim te quis coarguere possit?</p>
+                        </div>
+
+                        <div class="KrediKarti" style="display:none;font-weight:normal;text-align:left;padding:10px;border:solid 0.3mm #ededed">
+                            <p style="font-weight: normal;">Kredi Kartı İle Ödeme Lorem ipsum dolor sit amet, consectetur adipiscing elit. Stoicos roga. Iam id ipsum absurdum, maximum malum neglegi. Duo Reges: constructio interrete. Suo enim quisque studio maxime ducitur. Qui autem esse poteris, nisi te amor ipse ceperit? Scisse enim te quis coarguere possit?</p>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div style="padding:15px;width:30%;float:right">
+
+                <div style="padding:10px;background-color:#0b3b68;text-align:center;color:white">SEPETTEKİ ÜRÜNLER</div>
+                <table class="table table-bordered">
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            Toplam += item.Price * item.Piece;
+
+                            <tr>
+                                <td colspan="2" style="vertical-align: middle;text-align:center;background-color:#eaeaea">@item.Name</td>
+                            </tr>
+                            <tr>
+                                <td>Birim Fiyat :</td>
+                                <td style="vertical-align: middle;text-align: center">@item.Price.ToString("N")</td>
+                            </tr>
+
+                            <tr>
+                                <td>Adet :</td>
+                                <td style="vertical-align: middle;text-align: center">@item.Piece</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+                <div style="padding:10px;background-color:#0b3b68;text-align:center;color:white">SEPET TOPLAMI</div>
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>Sepet Tutarı</td>
+                            <td style="text-align:center">@Html.Raw((Toplam - (Toplam * 18 / 100)).ToString("N") + " TL")</td>
+                        </tr>
+                        <tr>
+                            <td>Kdv (%18)</td>
+                            <td style="text-align:center">@Html.Raw((Toplam * 18 / 100).ToString("N") + " TL")</td>
+                        </tr>
+                        <tr>
+                            <td>Kargo</td>
+                            <td style="text-align:center">Ücretsiz</td>
+                        </tr>
+                        <tr>
+                            <td>Toplam</td>
+                            <td style="text-align:center">@Toplam.ToString("N") TL</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><button type="submit" style="text-align:center" class="btn btn-dark form-control">Sipariş Tamamla</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,59 @@
+﻿@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="/Scripts/jquery-min.js"></script>
+    <link href="/LoginTema/images/admin.css" rel="stylesheet" />
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <title>Index</title>
+
+</head>
+<body>
+    <div class="col-md-4"></div>
+    <div class="adminlogin col-md-4">
+          <form asp-action="Index" asp-controller="Login" method="post" >
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <input class="inputKutu Girisler" placeholder="Kullanıcı Adı" type="text" id="userName" name="Email" style="width:100%" />
+                            <input class="inputKutu Girisler" placeholder="Şifresi" type="password" name="Password" style="width:100%" />
+
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-12">
+                <div class="row">
+                    <div id="Mesaj">
+                        @if (ViewBag.Error != null)
+                        {
+                            <div class="text-danger" style="color:white;font-size:18px;margin-top:25px;">@ViewBag.Error</div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="col-md-12" style="margin-top:25px;">
+                <div class="row">
+                    <button type="submit" class="btn btn-danger">Güvenli Giriş Yap</button>
+                </div>
+            </div>
+            <div class="col-md-12 errorr" style="font-size:17px; margin-top:25px;">@ViewBag.UyariMesaji</div>
+        </form>
+
+        <div class="col-md-12" style="padding:15px; color:#ffffff;margin-top:15%; font-size:17px;">© Copyright 2020 </div>
+    </div>
+</body>
+</html>

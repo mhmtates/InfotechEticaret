@@ -1,0 +1,228 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/_Shared/_LayoutPage.cshtml";
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box bg-red">
+                    <span class="info-box-icon"><i class="fa fa-shopping-cart"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">TOPLAM SİPARİŞ</span>
+                        <span class="info-box-number">
+
+                            10 Adet
+
+                        </span>
+
+                        <div class="progress">
+                            <div class="progress-bar" style="width:100%"></div>
+                        </div>
+                        <span class="progress-description">
+                            Daha Fazlası için Tıklayınız.
+                        </span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box bg-yellow">
+                    <span class="info-box-icon"><i class="fa fa-credit-card"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">TOPLAM SATIŞ</span>
+                        <span class="info-box-number">
+                            2500 TL
+                        </span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 100%"></div>
+                        </div>
+                        <span class="progress-description">
+                            Daha Fazlası için Tıklayınız.
+                        </span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <!-- fix for small devices only -->
+            <div class="clearfix visible-sm-block"></div>
+
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box bg-green">
+                    <span class="info-box-icon"><i class="fa fa-user"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">TOPLAM CİRO</span>
+                        <span class="info-box-number">
+                            2300 TL
+                        </span>
+
+                        <div class="progress">
+                            <div class="progress-bar" style="width:100%"></div>
+                        </div>
+                        <span class="progress-description">
+                            Daha Fazlası için Tıklayınız.
+                        </span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box bg-aqua">
+                    <span class="info-box-icon"><i class="fa fa-eye"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">ÇEVRİMİÇİ OLANLAR</span>
+                        <span class="info-box-number">10</span>
+
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 40%"></div>
+                        </div>
+                        <span class="progress-description">
+                            Daha Fazlası için Tıklayınız.
+                        </span>
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-md-12">
+                <!-- USERS LIST -->
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"><i class="fa fa-shopping-cart" style="margin-right:15px;"></i>SON SİPARİŞLER</h3>
+
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                <i class="fa fa-minus"></i>
+                            </button>
+
+                        </div>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body no-padding">
+                        <div class="box-body chat" style="padding:0;" id="chat-box">
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+            #style-3::-webkit-scrollbar-track {
+                -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+                background-color: #F5F5F5;
+            }
+
+            #style-3::-webkit-scrollbar {
+                width: 6px;
+                background-color: #F5F5F5;
+            }
+
+            #style-3::-webkit-scrollbar-thumb {
+                background-color: #000000;
+            }
+
+            .scrollbar {
+                height: 250px;
+                overflow-y: scroll;
+            }
+        </style>
+
+
+
+        <div class="row">
+            <div class="col-md-6">
+
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">GÜNLÜK İSTATİSTİK</h3>
+
+                        <div class="box-tools pull-right">
+                            <span class="label label-danger">Tüm Destekler</span>
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="box-body no-padding ">
+
+                        <div class="box-body no-padding">
+                            <div class="box-body chat" style="padding:0; height:250px;" id="chat-box">
+
+                                <div class="col-md-6" style="display:block;font-size:55px;padding:50px;text-align:center;padding-bottom:5px;">
+                                    <span style="font-size:25px;display:block;">Bu <b>AY</b> Ürünlerinizi </span>
+                                    45
+                                    <span style="font-size:25px;display:block;">Ortalama Kişi Ziyaret Etti. </span>
+                                </div>
+
+
+                                <div class="col-md-6" style="display:block;font-size:55px;padding:50px;text-align:center;padding-bottom:5px;">
+                                    <span style="font-size:25px;display:block;"><b>Bugün</b> Ürünlerinizi </span>
+                                    35
+                                    <span style="font-size:25px;display:block;">Ortlama Kişi Ziyaret Etti. </span>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <div class="col-md-6">
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">MESAJ KUTUSU</h3>
+                        <div class="box-tools pull-right">
+                            <span class="label label-danger">Tüm Sistem Raporları</span>
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="box-body no-padding ">
+                        <div class="box-body no-padding">
+                            <div class="box-body chat" style="padding:0;" id="chat-box">
+                                <div class="scrollbar" id="style-3">
+
+                                    <div class="col-md-12" style="border-bottom:solid 0.3mm #f3f3f3;padding-left:0;background-color:rgba(0,0,0,0.01)">
+                                        <i class="fa fa-info" aria-hidden="true" title="Kargo" style="margin-right:10px;background-color:#0b5287;padding:10px;padding-left:15px;padding-right:15px;color:white;"></i>
+                                        <b style="margin-right:5px;">1</b> Yeni Yorum Yapıldı.
+                                        <a href="/administrator/Urunler/YorumYonetimi" style="font-weight:600;padding:7px;margin-left:15px;">Yorumlara Git</a>
+                                    </div>
+
+
+                                    <div class="col-md-12" style="border-bottom:solid 0.3mm #f3f3f3;padding-left:0;">
+                                        <i class="fa fa-info" aria-hidden="true" title="Kargo" style="margin-right:10px;background-color:#0b5287;padding:10px;padding-left:15px;padding-right:15px;color:white;"></i>
+                                        <b style="margin-right:5px;">1</b> Bekleyen Siparişiniz vardır.
+                                        <a href="/administrator/Siparis" style="font-weight:600;padding:7px;margin-left:15px;">Siparişlere Git</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

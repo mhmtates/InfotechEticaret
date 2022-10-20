@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_Shared/_LayoutPage.cshtml";
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<div class="modal fade" id="myModal" role="dialog" style="z-index:99999;">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Sepet Uyarı</h4>
+            </div>
+            <div class="modal-body" style="text-align:center" id="GelenCevap">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="row">
+        <img src="~/images/Banner.png" width="100%" />
+    </div>
+</div>
+
+
+
+<div class="col-md-12">
+    <div class="row">
+        <div class="TextHeader">KAMPANYALI ÜRÜNLERİMİZ.</div>
+    </div>
+</div>
+
+<div class="col-md-12 ProductDiv">
+    <div class="row">
+
+        @if (Model.ResultStatus == Core.Results.ComplexTypes.ResultStatus.Info)
+        {
+            <div class="col-md-12" style="padding:25px;text-align:center;font-size:25px;">ÜRÜN BULUNAMADI.</div>
+        }
+        else
+        {
+
+            foreach (var item in Model.Data)
+            {
+                <div class="Product" style="position:relative;">
+                    <div style="position:absolute;left:0;top:0;background-color:rgb(111 3 3);padding:5px;text-align:center;display:block;color:white">
+                        @Html.Raw((item.Price - item.Discount).ToString("N"))
+                    </div>
+                    <img src="~/images/Products/@item.MainImages" />
+                    <div class="ProductHead"> @item.Name </div>
+                    <div class="Price">
+                        <span>@item.Price.ToString("N") TL</span>
+                        <span>@item.Discount.ToString("N") TL</span>
+                    </div>
+                    <div class="ProductBtn">
+                        <a href="#">İncele</a>
+                        <a style="color:white;" onclick="JSSepetEkle(@item.Id)">Sepete Ekle</a>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+

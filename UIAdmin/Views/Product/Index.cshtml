@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/_Shared/_LayoutPage.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box  box-default box-solid">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">
+                            ÜRÜN YÖNETİMİ
+                        </h3>
+                        <div class="box-tools pull-right">
+                            <a href="/Product/Insert" class="btn  btn-default" style="background-color:#a10909;color:white;">
+                                <i class="fa fa-plus" aria-hidden="true" style="margin-right:5px;"></i>
+                                YENİ EKLE
+                            </a>
+                        </div>
+                    </div>
+                    <div class="box-body">
+
+                        <table id="example1" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Ürün</th>
+                                    <th>Stok</th>
+                                    <th>Fiyat</th>
+                                    <th>İndirim</th>
+                                    <th>İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model != null)
+                                {
+                                    foreach (var item in Model)
+                                    {
+                                <tr>
+                                    <td><img src="~/images/Products/@item.MainImages" width="70" /></td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Stock</td>
+                                    <td>@item.Price.ToString("N")</td>
+                                    <td>@item.Discount.ToString("N")</td>
+                                    <td>
+                                        <a href="/Varyantlar/@item.Id" class="btn btn-info">Varyant</a>
+                                        <a href="/Product/Update/@item.Id" class="btn btn-primary">Düzenle</a>
+                                        <a href="/Product/Delete/@item.Id" class="btn btn-danger">Sil</a>
+                                    </td>
+                                </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,88 @@
+﻿@model Entities.DTO.VariantsDto;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/_Shared/_LayoutPage.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box  box-default box-solid">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">
+                            VARYANT YÖNETİMİ
+                        </h3>
+                    </div>
+                    <div class="box-body">
+                        <form asp-action="Index" asp-controller="Varyantlar" asp-route-id="@ViewContext.RouteData.Values["id"]" method="post">
+
+                            <div class="col-md-12" style="margin-bottom:10px;margin-top:10px;">
+                                <input type="text" name="GroupName" class="form-control" asp-for="GroupName" placeholder="Grup  Adı" />
+                                <span asp-validation-for="GroupName" style="position:absolute;right:25px;top:5px;color:#ff0000"></span>
+                            </div>
+
+                            <div class="col-md-12" style="margin-bottom:10px;margin-top:10px;">
+                                <input type="text" name="Name" class="form-control" asp-for="Name" placeholder="Varyant  Adı" />
+                                <span asp-validation-for="Name" style="position:absolute;right:25px;top:5px;color:#ff0000"></span>
+                            </div>
+
+                            <div class="col-md-12" style="margin-bottom:10px;margin-top:10px;">
+                                <input type="text" name="Price" class="form-control" asp-for="Price" placeholder="Fiyat" />
+                                <span asp-validation-for="Price" style="position:absolute;right:25px;top:5px;color:#ff0000"></span>
+                            </div>
+
+
+                            <div class="col-md-12" style="margin-bottom:10px;margin-top:10px;">
+
+                                <button type="submit" class="btn btn-primary">KAYDET</button>
+
+                            </div>
+                        </form>
+
+
+                        <div class="col-md-12">
+                            @if (ViewData["Message"] != null)
+                            {
+                                @Html.Raw(ViewData["Message"])
+                            }
+                        </div>
+
+                    </div>
+                    <div class="box-body">
+                        <table id="example1" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Grup Adı</th>
+                                    <th>Varyant Adı</th>
+                                    <th>Fiyat</th>
+                                    <th>İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @if (ViewBag.Data != null)
+                                {
+                                    foreach (var item in ViewBag.Data)
+                                    {
+                                        <tr>
+                                            <td>@item.GroupName</td>
+                                            <td>@item.Name</td>
+                                            <td>@item.Price.ToString("C")</td>
+                                            <td>
+                                                <a href="/Varyantlar/Delete/@item.Id" class="btn btn-danger">Sil</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+
+
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

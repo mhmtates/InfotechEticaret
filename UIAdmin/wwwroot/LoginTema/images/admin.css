@@ -1,0 +1,84 @@
+﻿body {
+    background-image: url("../images/bg.png");
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.adminlogin {
+    text-align: center;
+    margin-top: 10%
+}
+
+.inputKutu {
+    border: solid 0.3mm #1f1f1f;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    padding: 8px;
+    border-radius: 5px;
+    width: 60%;
+    margin-top: 15px;
+}
+
+.btndanger {
+    margin-top: 25px;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 2px;
+    color: #ececec;
+    border: 0px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color: #72A15A;
+    transition: all .5s ease-in-out;
+}
+
+.btninfo {
+    margin-top: 25px;
+    padding: 12px;
+    background-color: #AE4646;
+    font-size: 15px;
+    border-radius: 2px;
+    color: #ececec;
+    border: 0px;
+    transition: all .5s ease-in-out;
+}
+
+    .btninfo:hover {
+        color: white;
+        text-decoration: none;
+        background-color: #933C3C
+    }
+
+.errorr {
+    display: block;
+    color: white;
+    margin-top: 10px;
+}
+
+.btndanger:hover {
+    color: white;
+    text-decoration: none;
+    background-color: #5A7E47
+}
+
+.no-js #loader {
+    display: none;
+}
+
+.js #loader {
+    display: block;
+    position: absolute;
+    left: 100px;
+    top: 0;
+}
+
+.se-pre-con {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url(~/Areas/administrator/images/AktifLogo.png) center no-repeat #fff;
+}
+
+

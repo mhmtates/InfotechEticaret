@@ -1,0 +1,10 @@
+﻿<select name="CategoriesId" class="form-control">
+    <option value="0">Kategori Seçiniz.</option>
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+            <option value="@item.Id">@item.Name</option>
+        }
+    }
+</select>

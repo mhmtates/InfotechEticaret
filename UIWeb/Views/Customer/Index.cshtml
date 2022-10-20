@@ -1,0 +1,93 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_Shared/_LayoutPage.cshtml";
+}
+<div class="col-md-12">
+    <div class="row">
+        <img src="~/images/Banner.png" width="100%" />
+    </div>
+</div>
+
+
+
+<div class="col-md-12" style="background-color:#f3f3f3;margin-bottom:20px;">
+    <div class="row">
+        <div class="TextHeader">ÜYELİK / ÜYE İŞLEMLERİ</div>
+    </div>
+</div>
+
+
+<div class="col-md-12 ProductDiv">
+    <div class="row">
+
+        <div class="col-md-5">
+            <div class="col-md-12" style="margin-bottom:15px;margin-top:15px;">
+                <div class="row">
+                    <div class="TextHeader">ÜYE GİRİŞİ</div>
+                </div>
+            </div>
+            <form asp-controller="Customer" asp-action="Index" method="post">
+                <div class="col-md-12" style="text-align:center;margin-top:15px;margin-bottom:15px;">
+                    <input type="text" class="form-control" name="KullaniciAdi" placeholder="Email Adresiniz veya Telefon No" />
+                </div>
+                <div class="col-md-12" style="text-align:center;margin-top:15px;margin-bottom:15px;">
+                    <input type="password" class="form-control" name="KullaniciSifre" placeholder="Şifreniz" />
+                </div>
+
+                <div class="col-md-12" style="text-align:center;margin-top:15px;margin-bottom:15px;">
+                    <button type="submit" class="btn btn-primary form-control">Giriş Yap</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-5">
+            <div class="col-md-12" style="background-color:#f7f7f7;border-radius:15px;padding-bottom:15px;">
+                <div class="col-md-12" style="margin-bottom:15px;margin-top:15px;">
+                    <div class="row">
+                        <div class="TextHeader">ÜYELİK İŞLEMLERİ</div>
+                    </div>
+                </div>
+                <form asp-controller="Customer" asp-action="Register" method="post">
+                    <div class="col-md-12" style="text-align:center;margin-top:15px;margin-bottom:15px;">
+                        <input type="text" class="form-control" name="NameSurname" placeholder="Adınız Soyadınız :" required />
+                    </div>
+                    <div class="col-md-12" style="text-align:center;margin-top:15px;margin-bottom:15px;">
+                        <input type="text" class="form-control" name="Email" placeholder="E-Mail :"/>
+                    </div>
+                    <div class="col-md-12" style="text-align:center;margin-top:15px;margin-bottom:15px;">
+                        <input type="text" class="form-control" name="Phone" placeholder="Telefon :" required />
+                    </div>
+                    <div class="col-md-12" style="text-align:center;margin-top:15px;margin-bottom:15px;">
+                        <input type="password" class="form-control" name="Password" placeholder="Şifreniz :" required />
+                    </div>
+                    <div class="col-md-12 odemediv" style="text-align:center;margin-top:15px;margin-bottom:15px;">
+                        <table style="width:100%;">
+                            <tr>
+                                <td style="width:60px;">
+                                    <div class="switch">
+                                        <input id="Sms" type="checkbox" name="Advert" class="switch-input" />
+                                        <label for="Sms" class="switch-label"></label>
+                                    </div>
+                                </td>
+                                <td style="vertical-align:middle;text-align:left;padding-left:15px;padding-bottom:5px;">Reklam ve Sms Gönderimini Kabul Ediyorum.</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-md-12" style="text-align:center;margin-top:15px;margin-bottom:15px;">
+                        <button type="submit" class="btn btn-danger form-control">Üye Ol</button>
+                    </div>
+                    @if (TempData["Error"] != null)
+                    {
+                    <div class="alert alert-danger" style="margin-top:15px;text-align:center">
+
+                        @Html.Raw(TempData["Error"])
+
+                    </div>
+                    }
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+</div>

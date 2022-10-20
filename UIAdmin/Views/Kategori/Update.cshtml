@@ -1,0 +1,60 @@
+﻿@model Entities.DTO.CategoriesDto;
+@{
+    ViewData["Title"] = "Insert";
+    Layout = "~/Views/_Shared/_LayoutPage.cshtml";
+}
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box  box-default box-solid">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">KATEGORİ YÖNETİMİ</h3>
+                    </div>
+                    <div class="box-body" style="padding-top:25px;">
+
+                        <form asp-action="Update" asp-controller="Kategori" method="post" asp-route-id="@ViewContext.RouteData.Values["Id"]">
+
+                            <input type="text" name="ParentId"  value="@Model.ParentId" hidden/>
+
+                            <div class="col-md-12" style="margin-bottom:10px;margin-top:10px;">
+                                <input type="text" name="Name" class="form-control" asp-for="Name" value="@Model.Name" placeholder="Kategori Adı" />
+                                <span asp-validation-for="Name" style="position:absolute;right:25px;top:5px;color:#ff0000"></span>
+                            </div>
+                            <div class="col-md-12" style="margin-bottom:10px;margin-top:10px;">
+                                <select name="Status" class="form-control">
+                                    @if (Model.Status)
+                                    {
+                                        <option value="True">Aktif</option>
+                                        <option value="False">Pasif</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="False">Pasif</option>
+                                        <option value="True">Aktif</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-md-12" style="margin-bottom:10px;margin-top:10px;">
+
+                                <button type="submit" class="btn btn-primary">GÜNCELLE</button>
+
+                            </div>
+                        </form>
+                    </div>
+
+
+
+                    <div class="col-md-12">
+                        @if (ViewData["Message"] != null)
+                        {
+                            @Html.Raw(ViewData["Message"])
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+

@@ -1,0 +1,78 @@
+
+
+.checkbox-input {
+  display: none;
+}
+.checkbox-input:hover {
+    display: none;
+}
+.checkbox-input:checked {
+    display: none;
+}
+.checkbox-label, .checkbox-text, .checkbox-text--description {
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.checkbox-label {
+  width:18%;
+  padding:0;
+  cursor: pointer;
+  font-size:0px;
+  border: 1px solid #d9d9d9;
+  box-shadow: inset 0 0 0 0 #2196F3;
+}
+.checkbox-label:before {
+  display:none;
+}
+
+
+
+.checkbox-input:checked + .checkbox-label {
+  border-color: #2196F3;
+}
+
+
+.Tablist:hover {
+    background-color: #000000;
+    color: white;
+}
+
+.Tablist {
+    cursor: pointer
+}
+
+.imagesProduc {
+    float: left;
+    margin: 0%;
+    width:100%;
+}
+
+#Resimm::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+#Resimm::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
+}
+
+#Resimm::-webkit-scrollbar-thumb {
+    background-color: #000000;
+}
+.scrollbar {
+    float: left;
+    height:500px;
+    width:auto;
+    overflow-y: scroll;
+    margin-bottom: 25px;
+}
+
+.gallery img{float:left;width:18%;border:solid 0.3mm #d9d9d9;margin:0.5%;}
+.galleryAna img {
+    float: left;
+    width: 15%;
+    border: solid 0.3mm #d9d9d9;
+    margin: 0.5%;
+}

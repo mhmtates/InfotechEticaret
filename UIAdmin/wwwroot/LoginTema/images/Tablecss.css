@@ -1,0 +1,8 @@
+﻿
+
+@media screen and (max-width: 992px) {
+.OnayTBL{display:none}
+.TabloTR td:nth-of-type(2n+2){width:33%;}
+.TabloTR td:nth-of-type(2n+2){width:26%;}
+.TabloTR td:nth-of-type(2n+3){width:40%;}
+}

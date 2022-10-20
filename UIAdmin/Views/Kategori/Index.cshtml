@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/_Shared/_LayoutPage.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="box  box-default box-solid">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">
+                            KATEGORİ YÖNETİMİ
+
+                            @if (ViewContext.RouteData.Values["Id"] != null)
+                            {
+                                @Html.Raw(" -> " + TempData["Kategori"])
+                            }
+
+                        </h3>
+                        <div class="box-tools pull-right">
+                            <a href="/Kategori/Insert/@((ViewContext.RouteData.Values["Id"] != null)?ViewContext.RouteData.Values["Id"]:"")" class="btn  btn-default" style="background-color:#a10909;color:white;">
+                                <i class="fa fa-plus" aria-hidden="true" style="margin-right:5px;"></i>
+                                YENİ EKLE
+                            </a>
+                        </div>
+                    </div>
+                    <div class="box-body">
+
+                        <table id="example1" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Kategori</th>
+                                    <th>İşlem</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                  
+                                @if (Model != null)
+                                {
+                                    foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.Name</td>
+                                            <td>
+                                                <a href="/Kategori/@item.Id" class="btn btn-default">Alt Kategori</a>
+                                                <a href="/Kategori/Update/@item.Id" class="btn btn-primary">Düzenle</a>
+                                                <a href="/Kategori/Delete/@item.Id" class="btn btn-danger">Sil</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+
+
+
+                        </table>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

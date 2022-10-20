@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_Shared/_LayoutPage.cshtml";
+    decimal Toplam = 0;
+}
+
+<div class="col-md-12">
+    <div class="row">
+        <img src="~/images/Banner.png" width="100%" />
+    </div>
+</div>
+
+
+
+<div class="col-md-12" style="background-color:#f3f3f3;margin-bottom:15px;margin-top:15px;">
+    <div class="row">
+        <div class="TextHeader">HESABIM</div>
+    </div>
+</div>
+
+
+<div class="col-md-12 ProductDiv">
+    <div class="row">
+
+        <div class="col-md-3">
+
+            <ul class="HesabimMenu">
+                <li><a href="#">Hesabım</a></li>
+                <li><a href="/Customer/Orders">Siparişlerim</a></li>
+                <li><a href="#">İadelerim</a></li>
+                <li><a href="#">Adreslerim</a></li>
+                <li><a href="/Customer/Logout">Çıkış</a></li>
+            </ul>
+
+        </div>
+
+        <div class="col-md-9">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-md-12" style="text-align:center;margin-top:15px;margin-bottom:15px;">
+                    <input type="text" class="form-control" name="NSurname" value="@item.NSurname" placeholder="Adınız Soyadınız :" required />
+                </div>
+                <div class="col-md-12" style="text-align:center;margin-top:15px;margin-bottom:15px;">
+                    <input type="text" class="form-control" name="Email" value="@item.Email" placeholder="E-Mail :" required />
+                </div>
+
+                <div class="col-md-12" style="text-align:center;margin-top:15px;margin-bottom:15px;">
+                    <input type="text" class="form-control" name="Phone" value="@item.Phone" placeholder="Telefon :" required />
+                </div>
+
+                <div class="col-md-12" style="text-align:center;margin-top:15px;margin-bottom:15px;">
+                    <input type="password" class="form-control" name="Password" placeholder="Eski Şifre :" required />
+                </div>
+                <div class="col-md-12" style="text-align:center;margin-top:15px;margin-bottom:15px;">
+                    <input type="password" class="form-control" name="NewPassword" placeholder="Yeni Şifre :" required />
+                </div>
+
+                <div class="col-md-12" style="text-align:center;margin-top:15px;margin-bottom:15px;">
+                    <button type="submit" class="btn btn-danger form-control">Güncelle</button>
+                </div>
+
+            }
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
